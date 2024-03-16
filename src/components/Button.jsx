@@ -1,19 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Button.css';
 
 const Button = () => {
-    const [isActive, setIsActive] = useState(false);
     const [boxShadowColor, setBoxShadowColor] = useState('transparent');
+    const [isAnimationInProgress, setIsAnimationInProgress] = useState(false);
+    const animationRef = useRef(null);
 
     const handleClick = () => {
-        setIsActive(true);
+        if (!isAnimationInProgress) {
+            setIsAnimationInProgress(true);
 
-        const hexColor = generateHexColor();
-        setBoxShadowColor(hexColor);
+            const hexColor = generateHexColor();
+            setBoxShadowColor(hexColor);
 
-        setTimeout(() => {
-            setIsActive(false);
-        }, 3000);
+            // Clear any existing animation
+            if (animationRef.current) {
+                animationRef.current.style.animation = 'none';
+                void animationRef.current.offsetWidth; // Trigger reflow
+            }
+
+            // Start new animation
+            if (animationRef.current) {
+                animationRef.current.style.animation = 'pulse_btn 1.8s infinite';
+            }
+
+            // Enable the button after animation duration
+            setTimeout(() => {
+                setIsAnimationInProgress(false);
+            }, 1800); // Match the animation duration
+        }
+    };
+
+    const handleAnimationIteration = () => {
+        // Update background color after each animation iteration
+        document.body.style.backgroundColor = boxShadowColor;
     };
 
     const generateHexColor = () => {
@@ -28,14 +48,16 @@ const Button = () => {
     return (
         <div className="container">
             <button
-            className={isActive ? 'pulse_btn active' : 'pulse_btn'}
-            onClick={handleClick}
-            style={{
-                boxShadow: `0 0 0 100vw ${boxShadowColor}`
-
-            }}
+                className="pulse_btn"
+                onClick={handleClick}
+                ref={animationRef}
+                onAnimationIteration={handleAnimationIteration}
+                disabled={isAnimationInProgress}
+                style={{
+                    boxShadow: `0 0 0 100vw ${boxShadowColor}`
+                }}
             >
-            Change Color
+                Change Color
             </button>
         </div>
     );

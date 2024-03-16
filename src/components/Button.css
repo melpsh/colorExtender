@@ -5,11 +5,11 @@
   }
   
   button.pulse_btn.active {
-    animation: pulse_btn 3s;
+    animation: pulse_btn 1.8s;
   }
-  
-  /* .pulse_btn{
 
+  /* button:hover{
+    
   } */
 
   button {
@@ -19,11 +19,18 @@
     line-height: 1;
     margin: 0.5em;
     padding: 1em 2em;
+    background-color: beige;
+    border-radius: 15px;
   }
-  
+
   .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+    font-weight: 300;
   }
