@@ -1,0 +1,29 @@
+@keyframes pulse_btn {
+    0% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+  
+  button.pulse_btn.active {
+    animation: pulse_btn 3s;
+  }
+  
+  /* .pulse_btn{
+
+  } */
+
+  button {
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
