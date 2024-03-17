@@ -5,7 +5,7 @@
   }
   
   button.pulse_btn.active {
-    animation: pulse_btn 1.8s;
+    animation: pulse_btn 3s;
   }
 
   /* button:hover{
@@ -21,6 +21,7 @@
     padding: 1em 2em;
     background-color: beige;
     border-radius: 15px;
+    border-width: 0.3rem;
   }
 
   .container {

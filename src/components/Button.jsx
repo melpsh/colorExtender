@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './Button.css';
 
-const Button = () => {
+const Button = ({onColorChange}) => {
     const [boxShadowColor, setBoxShadowColor] = useState('transparent');
     const [isAnimationInProgress, setIsAnimationInProgress] = useState(false);
     const animationRef = useRef(null);
@@ -13,6 +13,8 @@ const Button = () => {
             const hexColor = generateHexColor();
             setBoxShadowColor(hexColor);
 
+            onColorChange(hexColor);
+
             // Clear any existing animation
             if (animationRef.current) {
                 animationRef.current.style.animation = 'none';
@@ -21,13 +23,13 @@ const Button = () => {
 
             // Start new animation
             if (animationRef.current) {
-                animationRef.current.style.animation = 'pulse_btn 1.8s infinite';
+                animationRef.current.style.animation = 'pulse_btn 3s infinite';
             }
 
             // Enable the button after animation duration
             setTimeout(() => {
                 setIsAnimationInProgress(false);
-            }, 1800); // Match the animation duration
+            }, 3000); // Match the animation duration
         }
     };
 
@@ -38,8 +40,8 @@ const Button = () => {
 
     const generateHexColor = () => {
         let hexColor = '#';
-        const colors = ['00', '33', '66', '99', 'CC', 'FF'];
-        for (let i = 0; i < 3; i++) {
+        const colors = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
+        for (let i = 0; i < 6; i++) {
             hexColor += colors[Math.floor(Math.random() * colors.length)];
         }
         return hexColor;
@@ -52,7 +54,7 @@ const Button = () => {
                 onClick={handleClick}
                 ref={animationRef}
                 onAnimationIteration={handleAnimationIteration}
-                disabled={isAnimationInProgress}
+                // disabled={isAnimationInProgress}
                 style={{
                     boxShadow: `0 0 0 100vw ${boxShadowColor}`
                 }}

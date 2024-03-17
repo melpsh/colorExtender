@@ -1,16 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Button from './components/Button'
-// import ColorText from './components/ColorText'
+import { useState } from 'react';
+import './App.css';
+import Button from './components/Button';
+import ColorText from './components/ColorText';
+import Icons from './components/Icons';
 
 function App() {
+  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
+
+  const handleColorChange = (color) => {
+    setBackgroundColor(color);
+  };
+
   return (
-    <>
-      <Button></Button>
-    </>
-  )
+    <div>
+      <ColorText backgroundColor={backgroundColor} />
+      <Button onColorChange={handleColorChange} />
+      <Icons></Icons>
+    </div>
+  );
 }
 
-export default App
+export default App;
