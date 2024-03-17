@@ -1,0 +1,37 @@
+@keyframes pulse_btn {
+    0% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+  
+  button.pulse_btn.active {
+    animation: pulse_btn 3s;
+  }
+
+  /* button:hover{
+    
+  } */
+
+  button {
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+    background-color: beige;
+    border-radius: 15px;
+    border-width: 0.3rem;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+    font-weight: 300;
+  }

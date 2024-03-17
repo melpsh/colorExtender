@@ -1,0 +1,31 @@
+.hex_container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 250px;
+    left: 50%; /* Move to the center horizontally */
+    transform: translateX(-50%); /* Adjust to perfectly center horizontally */
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 25px;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.colorRGB{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 120px;
+    left: 50%; /* Move to the center horizontally */
+    transform: translateX(-50%); /* Adjust to perfectly center horizontally */
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 25px;
+    font-weight: 600;
+    font-style: normal;
+}
