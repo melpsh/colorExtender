@@ -5,7 +5,7 @@
   }
   
   button.pulse_btn.active {
-    animation: pulse_btn 3s;
+    animation: pulse_btn 1s;
   }
 
   /* button:hover{

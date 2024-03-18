@@ -1,3 +1,8 @@
 .icon{
     color: black;
 }
+
+.icons-container{
+    background-color: red;
+    z-index: 100;
+}

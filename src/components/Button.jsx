@@ -23,13 +23,13 @@ const Button = ({onColorChange}) => {
 
             // Start new animation
             if (animationRef.current) {
-                animationRef.current.style.animation = 'pulse_btn 3s infinite';
+                animationRef.current.style.animation = 'pulse_btn 1s infinite';
             }
 
             // Enable the button after animation duration
             setTimeout(() => {
                 setIsAnimationInProgress(false);
-            }, 3000); // Match the animation duration
+            }, 1000); // Match the animation duration
         }
     };
 

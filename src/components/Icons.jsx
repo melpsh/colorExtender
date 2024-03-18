@@ -6,7 +6,10 @@ const Icons = ({ onCopy, onUndo, onLike }) => {
     
   return (
     <div className="icons-container">
-      <FaCopy onClick={onCopy} className="icon" />
+      <h1>salammmm</h1>
+      <FaCopy onClick={onCopy} className="icon fa-solid fa-copy">
+        <i class="fa-regular fa-copy">salam</i>
+      </FaCopy>
       <FaUndo onClick={onUndo} className="icon" />
       <FaThumbsUp onClick={onLike} className="icon" />
     </div>
