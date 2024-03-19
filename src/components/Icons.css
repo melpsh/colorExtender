@@ -1,8 +1,22 @@
 .icon{
-    color: black;
+    padding: 1.5rem;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .icons-container{
-    background-color: red;
-    z-index: 100;
+    position: absolute;
+    top: 55%;
+    left: 45%;
 }
+
+@keyframes copyAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.icon-copy.clicked {
+    animation: copyAnimation 0.5s ease-in-out;
+}
+  

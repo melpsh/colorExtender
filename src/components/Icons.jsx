@@ -1,17 +1,32 @@
-import React from 'react';
-import { FaCopy, FaUndo, FaThumbsUp } from 'react-icons/fa';
-import './Icons.css'
+import React, { useState } from 'react';
+import { FaCopy, FaUndo, FaHeart } from 'react-icons/fa';
+import './Icons.css';
 
-const Icons = ({ onCopy, onUndo, onLike }) => {
-    
+const Icons = ({ onCopy, onUndo, onLike, backgroundColor }) => {
+  const [copyClicked, setCopyClicked] = useState(false);
+
+  const handleCopy = () => {
+    if (backgroundColor) {
+      navigator.clipboard.writeText(backgroundColor)
+        .then(() => {
+          console.log('Color code copied to clipboard: ' + backgroundColor);
+          setCopyClicked(true);
+          setTimeout(() => setCopyClicked(false), 500); // Reset animation after 500ms
+        })
+        .catch(err => console.error('Unable to copy color code: ', err));
+    } else {
+      console.error('Background color is not provided.');
+    }
+  };
+
   return (
     <div className="icons-container">
-      <h1>salammmm</h1>
-      <FaCopy onClick={onCopy} className="icon fa-solid fa-copy">
-        <i class="fa-regular fa-copy">salam</i>
-      </FaCopy>
+      <FaCopy
+        onClick={handleCopy}
+        className={`icon icon-copy ${copyClicked ? 'clicked' : ''}`}
+      />
       <FaUndo onClick={onUndo} className="icon" />
-      <FaThumbsUp onClick={onLike} className="icon" />
+      <FaHeart onClick={onLike} className="icon" />
     </div>
   );
 };

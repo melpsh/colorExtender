@@ -15,7 +15,7 @@ function App() {
     <div>
       <ColorText backgroundColor={backgroundColor} />
       <Button onColorChange={handleColorChange} />
-      <Icons></Icons>
+      <Icons backgroundColor={backgroundColor}></Icons>
     </div>
   );
 }
