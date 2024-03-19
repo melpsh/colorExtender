@@ -11,12 +11,22 @@ const Icons = ({ onCopy, onUndo, onLike, backgroundColor }) => {
         .then(() => {
           console.log('Color code copied to clipboard: ' + backgroundColor);
           setCopyClicked(true);
-          setTimeout(() => setCopyClicked(false), 500); // Reset animation after 500ms
+          setTimeout(() => setCopyClicked(false), 500);
         })
         .catch(err => console.error('Unable to copy color code: ', err));
     } else {
       console.error('Background color is not provided.');
     }
+  };
+
+  const handleUndo = () => {
+    // Call the onUndo function passed from the parent component
+    onUndo();
+  };
+
+  const handleLike = () => {
+    // Call the onLike function passed from the parent component
+    onLike();
   };
 
   return (
@@ -25,8 +35,8 @@ const Icons = ({ onCopy, onUndo, onLike, backgroundColor }) => {
         onClick={handleCopy}
         className={`icon icon-copy ${copyClicked ? 'clicked' : ''}`}
       />
-      <FaUndo onClick={onUndo} className="icon" />
-      <FaHeart onClick={onLike} className="icon" />
+      <FaUndo onClick={handleUndo} className="icon" />
+      <FaHeart onClick={handleLike} className="icon" />
     </div>
   );
 };

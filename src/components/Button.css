@@ -8,10 +8,6 @@
     animation: pulse_btn 1s;
   }
 
-  /* button:hover{
-    
-  } */
-
   button {
     background: none;
     border: 2px solid;

@@ -1,0 +1,15 @@
+@keyframes reverse_pulse_btn {
+    100% {
+      box-shadow: 0 0 0 0;
+    }
+    50% {
+      box-shadow: 0 0 0 50vw;
+    }
+    0% {
+      box-shadow: 0 0 0 100vw;
+    }
+  }
+
+  icon.icon.active{
+    animation: reverse_pulse_btn 1s;
+  }
