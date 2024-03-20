@@ -13,3 +13,28 @@
   icon.icon.active{
     animation: reverse_pulse_btn 1s;
   }
+
+.squares-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 5rem;
+    left: 3rem;
+  }
+  
+  .square {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-color: #ffffff; /* You can adjust the background color */
+    border-radius: 8px; /* Adds rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Adds a subtle shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+  }
+  
+  .square:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
+  

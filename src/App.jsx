@@ -55,6 +55,7 @@ function App() {
   const [colorHistory, setColorHistory] = useState([]);
   const [isAnimationReversed, setIsAnimationReversed] = useState(false);
   const [isAnimationInProgress, setIsAnimationInProgress] = useState(false);
+  const [squares, setSquares] = useState([]);
   const animationRef = useRef(null);
   
   const handlebackGroundColorChange = (color) => {
@@ -94,10 +95,17 @@ function App() {
      }
   };
 
+
   const handleLike = () => {
-    // Implement like functionality here
-    console.log('Like clicked');
+    // Generate a new square div with the same background color as the screen
+    console.log('like clicked')
+    const newSquare = {
+      id: squares.length + 1,
+      backgroundColor: backgroundColor
+    };
+    setSquares([...squares, newSquare]);
   };
+
 
   return (
     <div>
@@ -112,6 +120,15 @@ function App() {
         onLike={handleLike}
         ref={animationRef}
       />
+      <div className="squares-container">
+        {squares.map(square => (
+          <div
+            key={square.id}
+            className="square"
+            style={{ backgroundColor: square.backgroundColor }}
+          ></div>
+        ))}
+      </div>
     </div>
   );
 }
