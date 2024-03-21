@@ -36,6 +36,15 @@
     border-radius: 8px; /* Adds rounded corners */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Adds a subtle shadow */
     transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+    transition: transform 0.5s ease, border 0.5s ease;
+  }
+
+  .liked {
+    border: 5px solid red; /* Shiny red border */
+  }
+
+  .transform {
+    transform: scale(0.9);
   }
   
   .square:hover {

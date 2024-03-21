@@ -58,6 +58,7 @@ function App() {
   const [isAnimationInProgress, setIsAnimationInProgress] = useState(false);
   const [squares, setSquares] = useState([]);
   const [addedColors, setAddedColors] = useState(new Set()); // Track added colors
+  const [liked, setLiked] = useState(false);
   const animationRef = useRef(null);
 
   const handlebackGroundColorChange = (color) => {
@@ -95,7 +96,10 @@ function App() {
     if (addedColors.size >= 30) {
       alert("You have reached the maximum limit of favorited colors (30).");
     } else if (addedColors.has(backgroundColor)) {
-      alert("This color has already been added to the palette!");
+      setLiked(true);
+      setTimeout(() => {
+        setLiked(false);
+      }, 1000);
     } else {
       const newSquare = {
         id: squares.length + 1,
@@ -123,7 +127,7 @@ function App() {
         {squares.map(square => (
           <div
             key={square.id}
-            className="square"
+            className={`square ${liked ? 'liked transform' : ''}`}
             style={{ backgroundColor: square.backgroundColor }}
           ></div>
         ))}
