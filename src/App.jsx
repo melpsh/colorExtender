@@ -44,7 +44,8 @@
 // export default App;
 
 //-----------------------------------------------------------
-import { useState, useRef } from 'react';
+
+import React, { useState, useRef } from 'react';
 import './App.css';
 import Button from './components/Button';
 import ColorText from './components/ColorText';
@@ -56,56 +57,54 @@ function App() {
   const [isAnimationReversed, setIsAnimationReversed] = useState(false);
   const [isAnimationInProgress, setIsAnimationInProgress] = useState(false);
   const [squares, setSquares] = useState([]);
+  const [addedColors, setAddedColors] = useState(new Set()); // Track added colors
   const animationRef = useRef(null);
-  
+
   const handlebackGroundColorChange = (color) => {
-    setColorHistory(prev => [...prev, backgroundColor]); // Store the previous color
+    setColorHistory(prev => [...prev, backgroundColor]);
     setBackgroundColor(color);
   };
 
   const handleUndo = () => {
-    // Reverse animation
     setIsAnimationReversed(true);
-    // After a brief delay, change color and revert animation direction
-      if (colorHistory.length > 0) {
-        const previousColor = colorHistory.pop(); // Get the last color from history
-        setBackgroundColor(previousColor); // Revert to the previous color
-        setColorHistory([...colorHistory]); // Update the color history stack
-      }
-      // setIsAnimationReversed(false);
+    if (colorHistory.length > 0) {
+      const previousColor = colorHistory.pop();
+      setBackgroundColor(previousColor);
+      setColorHistory([...colorHistory]);
+    }
 
     if (!isAnimationInProgress) {
       setIsAnimationInProgress(true);
-  
-      // Clear any existing animation
-      if (animationRef.current) {
-          animationRef.current.style.animation = 'none';
-          void animationRef.current.offsetWidth; // Trigger reflow
-      }
-  
-      // Start new animation
-      if (animationRef.current) {
-          animationRef.current.style.animation = ' 1s ease-in-out';  
-      }
-  
-      // Enable the button after animation duration
-      setTimeout(() => {
-          setIsAnimationInProgress(false);
-      }, 1000); // Match the animation duration
-     }
-  };
 
+      if (animationRef.current) {
+        animationRef.current.style.animation = 'none';
+        void animationRef.current.offsetWidth;
+      }
+
+      if (animationRef.current) {
+        animationRef.current.style.animation = ' 1s ease-in-out';
+      }
+
+      setTimeout(() => {
+        setIsAnimationInProgress(false);
+      }, 1000);
+    }
+  };
 
   const handleLike = () => {
-    // Generate a new square div with the same background color as the screen
-    console.log('like clicked')
-    const newSquare = {
-      id: squares.length + 1,
-      backgroundColor: backgroundColor
-    };
-    setSquares([...squares, newSquare]);
+    if (addedColors.size >= 30) {
+      alert("You have reached the maximum limit of favorited colors (30).");
+    } else if (addedColors.has(backgroundColor)) {
+      alert("This color has already been added to the palette!");
+    } else {
+      const newSquare = {
+        id: squares.length + 1,
+        backgroundColor: backgroundColor
+      };
+      setSquares([...squares, newSquare]);
+      setAddedColors(new Set(addedColors).add(backgroundColor)); // Update added colors set
+    }
   };
-
 
   return (
     <div>

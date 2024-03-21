@@ -22,6 +22,10 @@
     position: absolute;
     bottom: 5rem;
     left: 3rem;
+    right: 3rem;
+    border-radius: 8px;
+    background-color: rgb(111, 110, 110); /* Fallback color */
+    background-color: rgba(124, 124, 124, 0.4);
   }
   
   .square {
