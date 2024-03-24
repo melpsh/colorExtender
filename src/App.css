@@ -57,3 +57,11 @@
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
   }
   
+  .text-with-border {
+    color: white; /* Set text color */
+    text-shadow: 
+      -1px -1px 0 black,  
+       1px -1px 0 black,
+      -1px  1px 0 black,
+       1px  1px 0 black; /* Set multiple shadows to create a border effect */
+  }

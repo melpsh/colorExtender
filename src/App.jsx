@@ -1,50 +1,3 @@
-// import { useState } from 'react';
-// import './App.css';
-// import Button from './components/Button';
-// import ColorText from './components/ColorText';
-// import Icons from './components/Icons';
-
-// function App() {
-//   const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
-//   const [colorHistory, setColorHistory] = useState([]);
-  
-//   const handleColorChange = (color) => {
-//     setColorHistory(prev => [...prev, backgroundColor]); // Store the previous color
-//     setBackgroundColor(color);
-//   };
-
-//   const handleUndo = () => {
-//     if (colorHistory.length > 0) {
-//       const previousColor = colorHistory.pop(); // Get the last color from history
-//       setBackgroundColor(previousColor); // Revert to the previous color
-//       setColorHistory([...colorHistory]); // Update the color history stack
-//     }
-//   };
-
-//   const handleLike = () => {
-//     // Implement like functionality here
-//     console.log('Like clicked');
-//   };
-
-//   return (
-//     <div>
-//       <ColorText backgroundColor={backgroundColor} />
-//       <Button 
-//         onColorChange={handleColorChange} 
-//         />
-//       <Icons
-//         backgroundColor={backgroundColor}
-//         onUndo={handleUndo}
-//         onLike={handleLike}
-//       />
-//     </div>
-//   );
-// }
-
-// export default App;
-
-//-----------------------------------------------------------
-
 import React, { useState, useRef } from 'react';
 import './App.css';
 import Button from './components/Button';
@@ -111,7 +64,7 @@ function App() {
     } else {
       const newSquare = {
         id: squares.length + 1,
-        backgroundColor: backgroundColor
+        backgroundColor : backgroundColor
       };
       setSquares([...squares, newSquare]);
       setAddedColors(new Set(addedColors).add(lastAddedColor)); // Update added colors set with the last added color
