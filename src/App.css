@@ -14,8 +14,9 @@
     animation: reverse_pulse_btn 1s;
   }
 
-.squares-container {
-    display: flex;
+  .squares-container {
+    display: none; /* Initially hide the container */
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -24,8 +25,13 @@
     left: 3rem;
     right: 3rem;
     border-radius: 8px;
-    background-color: rgb(111, 110, 110); /* Fallback color */
-    background-color: rgba(124, 124, 124, 0.4);
+    background-color: rgb(171 165 165 / 40%);
+    /* height: 130px; */
+  }
+
+  .show{
+    display: inline-flex;
+    
   }
   
   .square {
@@ -35,8 +41,8 @@
     background-color: #ffffff; /* You can adjust the background color */
     border-radius: 8px; /* Adds rounded corners */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Adds a subtle shadow */
-    transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
-    transition: transform 0.5s ease, border 0.5s ease;
+    transition: box-shadow 0.3s ease; 
+    transition: transform ease, border 0.5s ease;
   }
 
   .liked {

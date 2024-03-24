@@ -61,6 +61,7 @@ function App() {
   const [liked, setLiked] = useState(false);
   const animationRef = useRef(null);
   console.log("Ino inja barat neveshtam ta yadet nare k to cheghad talash kardi! enghad khodeto dava nakon.")
+  const [showContainer, setShowContainer] = useState(false);
 
   const handlebackGroundColorChange = (color) => {
     setColorHistory(prev => [...prev, backgroundColor]);
@@ -94,9 +95,15 @@ function App() {
   };
 
   const handleLike = () => {
+    // Get the last added color from colorHistory
+    const lastAddedColor = colorHistory[colorHistory.length - 1];
+    if (!showContainer) {
+      setShowContainer(true);
+    }
+
     if (addedColors.size >= 30) {
       alert("You have reached the maximum limit of favorited colors (30).");
-    } else if (addedColors.has(backgroundColor)) {
+    } else if (addedColors.has(lastAddedColor)) { // Check if the last added color is a duplicate
       setLiked(true);
       setTimeout(() => {
         setLiked(false);
@@ -107,7 +114,7 @@ function App() {
         backgroundColor: backgroundColor
       };
       setSquares([...squares, newSquare]);
-      setAddedColors(new Set(addedColors).add(backgroundColor)); // Update added colors set
+      setAddedColors(new Set(addedColors).add(lastAddedColor)); // Update added colors set with the last added color
     }
   };
 
@@ -124,11 +131,11 @@ function App() {
         onLike={handleLike}
         ref={animationRef}
       />
-      <div className="squares-container">
-        {squares.map(square => (
+      <div className={`squares-container ${showContainer ? 'show' : 'hide'}`}>
+        {squares.map((square,index) => (
           <div
             key={square.id}
-            className={`square ${liked ? 'liked transform' : ''}`}
+            className={`square ${index === squares.length - 1 && liked ? 'liked transform' : ''}`}
             style={{ backgroundColor: square.backgroundColor }}
           ></div>
         ))}
