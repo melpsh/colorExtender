@@ -13,7 +13,7 @@ function App() {
   const [addedColors, setAddedColors] = useState(new Set()); // Track added colors
   const [liked, setLiked] = useState(false);
   const animationRef = useRef(null);
-  console.log("Ino inja barat neveshtam ta yadet nare k to cheghad talash kardi! enghad khodeto dava nakon.")
+  console.log("Ino inja barat neveshtam ta yadet nare k to cheghad talash kardi! be nice to yourself")
   const [showContainer, setShowContainer] = useState(false);
 
   const handlebackGroundColorChange = (color) => {

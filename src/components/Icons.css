@@ -20,3 +20,27 @@
     animation: copyAnimation 0.5s ease-in-out;
 }
   
+
+/* Responsive Styles */
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .icon {
+        padding: 1rem; /* Reduce padding */
+        font-size: 18px; /* Reduce font size */
+    }
+
+    .icons-container {
+        top: 50%; /* Adjust top position */
+        left: 50%; /* Adjust left position */
+        transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    }
+}
+
+/* Adjustments for even smaller screens */
+@media screen and (max-width: 480px) {
+    .icon {
+        padding: 0.8rem; /* Further reduce padding */
+        font-size: 16px; /* Further reduce font size */
+    }
+}

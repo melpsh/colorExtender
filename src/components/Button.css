@@ -31,3 +31,19 @@
     font-size: 25px;
     font-weight: 300;
   }
+
+  /* Responsive Styles */
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  button {
+      padding: 0.8em 1.5em; /* Reduce padding */
+  }
+}
+
+/* Adjustments for even smaller screens */
+@media screen and (max-width: 480px) {
+  button {
+      padding: 0.6em 1.2em; /* Further reduce padding */
+  }
+}

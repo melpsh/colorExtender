@@ -29,3 +29,29 @@
     font-weight: 600;
     font-style: normal;
 }
+
+/* Responsive Styles */
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .hex_container {
+        top: 200px; /* Adjust top position */
+    }
+
+    .colorRGB {
+        top: 90px; /* Adjust top position */
+    }
+}
+
+/* Adjustments for even smaller screens */
+@media screen and (max-width: 480px) {
+    .hex_container {
+        top: 150px; /* Further adjust top position */
+        font-size: 20px; /* Reduce font size */
+    }
+
+    .colorRGB {
+        top: 70px; /* Further adjust top position */
+        font-size: 20px; /* Reduce font size */
+    }
+}

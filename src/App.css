@@ -65,3 +65,30 @@
       -1px  1px 0 black,
        1px  1px 0 black; /* Set multiple shadows to create a border effect */
   }
+
+
+  /* Responsive Styles */
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  /* Adjust container width */
+  .squares-container {
+      left: 1rem;
+      right: 1rem;
+  }
+}
+
+/* Adjustments for even smaller screens */
+@media screen and (max-width: 480px) {
+  /* Adjust container width */
+  .squares-container {
+      left: 0.5rem;
+      right: 0.5rem;
+  }
+  /* Adjust square size */
+  .square {
+      width: 80px;
+      height: 80px;
+      margin: 5px;
+  }
+}
