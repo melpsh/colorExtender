@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react';
 import './App.css';
+import ColorPalette from './components/ColorPalette'; // Import ColorPalette component
 import Button from './components/Button';
 import ColorText from './components/ColorText';
 import Icons from './components/Icons';
+import { MdClose } from 'react-icons/md';
 
 function App() {
   const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
@@ -12,9 +14,9 @@ function App() {
   const [squares, setSquares] = useState([]);
   const [addedColors, setAddedColors] = useState(new Set()); // Track added colors
   const [liked, setLiked] = useState(false);
-  const animationRef = useRef(null);
-  console.log("Ino inja barat neveshtam ta yadet nare k to cheghad talash kardi! be nice to yourself")
   const [showContainer, setShowContainer] = useState(false);
+
+  const animationRef = useRef(null);
 
   const handlebackGroundColorChange = (color) => {
     setColorHistory(prev => [...prev, backgroundColor]);
@@ -64,11 +66,21 @@ function App() {
     } else {
       const newSquare = {
         id: squares.length + 1,
-        backgroundColor : backgroundColor
+        backgroundColor: backgroundColor
       };
       setSquares([...squares, newSquare]);
       setAddedColors(new Set(addedColors).add(lastAddedColor)); // Update added colors set with the last added color
     }
+  };
+
+  const handleColorClick = (color) => {
+    setBackgroundColor(color);
+  };
+
+  const handleRemoveColor = (color) => {
+    const updatedColors = squares.filter(square => square.backgroundColor !== color);
+    setSquares(updatedColors);
+    setAddedColors(new Set([...updatedColors.map(square => square.backgroundColor)]));
   };
 
   return (
@@ -84,13 +96,20 @@ function App() {
         onLike={handleLike}
         ref={animationRef}
       />
+      <ColorPalette
+        colors={[...addedColors]}
+        onColorClick={handleColorClick}
+        onRemoveColor={handleRemoveColor}
+      />
       <div className={`squares-container ${showContainer ? 'show' : 'hide'}`}>
-        {squares.map((square,index) => (
+        {squares.map((square, index) => (
           <div
             key={square.id}
             className={`square ${index === squares.length - 1 && liked ? 'liked transform' : ''}`}
             style={{ backgroundColor: square.backgroundColor }}
-          ></div>
+          >
+            <MdClose></MdClose>
+          </div>
         ))}
       </div>
     </div>
