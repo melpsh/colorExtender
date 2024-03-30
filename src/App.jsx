@@ -5,6 +5,7 @@ import Button from './components/Button';
 import ColorText from './components/ColorText';
 import Icons from './components/Icons';
 import { MdClose } from 'react-icons/md';
+import { createLogger } from 'vite';
 
 function App() {
   const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
@@ -115,5 +116,5 @@ function App() {
     </div>
   );
 }
-
+console.log("something for github")
 export default App;
