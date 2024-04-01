@@ -66,6 +66,10 @@
        1px  1px 0 black; /* Set multiple shadows to create a border effect */
   }
 
+  .MdClose{
+    border: #ffffff;
+  }
+
 
   /* Responsive Styles */
 
