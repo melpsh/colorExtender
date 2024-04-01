@@ -20,7 +20,7 @@ const ColorText = ({ backgroundColor }) => {
     // Calculate luminance
     const luminance = (0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b) / 255;
     // Return dark or light text color based on luminance
-    return luminance > 0.5 ? '#000000' : '#FFFFFF';
+    return luminance > 0.5 ? '#000000' : '#beige';
   };
 
   // Style for text color
@@ -30,7 +30,7 @@ const ColorText = ({ backgroundColor }) => {
 
   return (
     <div className='hex_container'>
-      <h1 className='colorHex text-with-border' style={textStyle}>
+      <h1 className='colorHex text-with-border' style={textStyle} >
         BackgroundColor: {backgroundColor}
       </h1>
       <h1 className='colorRGB text-with-border' style={textStyle}>

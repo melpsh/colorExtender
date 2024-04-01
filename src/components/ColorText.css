@@ -4,6 +4,7 @@
     position: absolute;
     top: 250px;
     left: 50%; /* Move to the center horizontally */
+    color: beige;
     transform: translateX(-50%); /* Adjust to perfectly center horizontally */
     justify-content: center;
     align-items: center; /* Center vertically */
@@ -15,6 +16,7 @@
 }
 
 .colorRGB{
+    color: beige;
     display: flex;
     flex-direction: column;
     position: absolute;
