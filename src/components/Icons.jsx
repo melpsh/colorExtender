@@ -20,12 +20,10 @@ const Icons = ({ onCopy, onUndo, onLike, backgroundColor }) => {
   };
 
   const handleUndo = () => {
-    // Call the onUndo function passed from the parent component
     onUndo();
   };
 
   const handleLike = () => {
-    // Call the onLike function passed from the parent component
     onLike();
   };
 

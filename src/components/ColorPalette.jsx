@@ -3,7 +3,7 @@ import { MdClose } from 'react-icons/md';
 
 const ColorPalette = ({ colors, onColorClick, onRemoveColor }) => {
   const handleColorClick = (color) => {
-    console.log('Color clicked:', color); // Ensure this log appears when clicking on a color square
+    console.log('Color clicked:', color); 
     onColorClick(color);
   };
 

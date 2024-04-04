@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import './App.css';
-import ColorPalette from './components/ColorPalette'; // Import ColorPalette component
+import ColorPalette from './components/ColorPalette';
 import Button from './components/Button';
 import ColorText from './components/ColorText';
 import Icons from './components/Icons';
@@ -12,7 +12,7 @@ function App() {
   const [isAnimationReversed, setIsAnimationReversed] = useState(false);
   const [isAnimationInProgress, setIsAnimationInProgress] = useState(false);
   const [squares, setSquares] = useState([]);
-  const [addedColors, setAddedColors] = useState(new Set()); // Track added colors
+  const [addedColors, setAddedColors] = useState(new Set());
   const [liked, setLiked] = useState(false);
   const [showContainer, setShowContainer] = useState(false);
 
@@ -50,7 +50,6 @@ function App() {
   };
 
   const handleLike = () => {
-    // Get the last added color from colorHistory
     const lastAddedColor = colorHistory[colorHistory.length - 1];
     if (!showContainer) {
       setShowContainer(true);
@@ -58,7 +57,7 @@ function App() {
 
     if (addedColors.size >= 30) {
       alert("You have reached the maximum limit of favorited colors (30).");
-    } else if (addedColors.has(lastAddedColor)) { // Check if the last added color is a duplicate
+    } else if (addedColors.has(lastAddedColor)) { 
       setLiked(true);
       setTimeout(() => {
         setLiked(false);
@@ -69,7 +68,7 @@ function App() {
         backgroundColor: backgroundColor
       };
       setSquares([...squares, newSquare]);
-      setAddedColors(new Set(addedColors).add(lastAddedColor)); // Update added colors set with the last added color
+      setAddedColors(new Set(addedColors).add(lastAddedColor));
     }
   };
 
