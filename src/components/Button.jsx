@@ -28,7 +28,7 @@ const Button = ({ currentColor, onColorChange }) => {
 
     setTimeout(() => {
         setIsAnimationInProgress(false);
-    }, 1000); 
+    }); 
 
    }
   };

@@ -15,7 +15,7 @@
     font-style: normal;
 }
 
-.colorRGB{
+.colorRGB {
     color: beige;
     display: flex;
     flex-direction: column;
@@ -32,25 +32,26 @@
     font-style: normal;
 }
 
-
 @media screen and (max-width: 768px) {
     .hex_container {
         top: 200px; 
+        font-size: 22px; /* Adjust font size for medium screens */
     }
 
     .colorRGB {
-        top: 90px; 
+        top: 90px;
+        font-size: 22px; /* Adjust font size for medium screens */
     }
 }
 
 @media screen and (max-width: 480px) {
     .hex_container {
         top: 150px; 
-        font-size: 20px;
+        font-size: 20px; /* Adjust font size for small screens */
     }
 
     .colorRGB {
         top: 70px;
-        font-size: 20px;
+        font-size: 20px; /* Adjust font size for small screens */
     }
 }

@@ -1,46 +1,240 @@
-@keyframes pulse_btn {
-    0% {
-      box-shadow: 0 0 0 0 transparent;
-    }
+@keyframes reverse_pulse_btn {
+  100% {
+    box-shadow: 0 0 0 0;
   }
-  
-  button.pulse_btn.active {
-    animation: pulse_btn 1s;
+  50% {
+    box-shadow: 0 0 0 50vw;
+  }
+  0% {
+    box-shadow: 0 0 0 100vw;
+  }
+}
+
+.icon.icon.active {
+  animation: reverse_pulse_btn 1s;
+}
+
+.squares-container {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 5rem;
+  left: 3rem;
+  right: 3rem;
+  border-radius: 8px;
+  background-color: rgba(171, 165, 165, 0.4);
+}
+
+.show {
+  display: inline-flex;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border 0.5s ease;
+}
+
+.liked {
+  border: 5px solid red;
+}
+
+.transform {
+  transform: scale(0.9);
+}
+
+.square:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.text-with-border {
+  color: white;
+  text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+.MdClose {
+  border: #ffffff;
+}
+
+.icon {
+  padding: 1.5rem;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.icons-container {
+  position: absolute;
+  top: 55%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes copyAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.icon-copy.clicked {
+  animation: copyAnimation 0.5s ease-in-out;
+}
+
+.hex_container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  color: beige;
+  transform: translateX(-50%);
+  justify-content: center;
+  align-items: center;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 25px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.colorRGB {
+  color: beige;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  align-items: center;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 25px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+button.pulse_btn.active {
+  animation: pulse_btn 1s;
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  background-color: beige;
+  border-radius: 15px;
+  border-width: 0.3rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Ensure vertical alignment */
+  height: 100vh;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  font-weight: 300;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .squares-container {
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .square {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+  }
+
+  .icon {
+    padding: 1rem;
+    font-size: 18px;
+  }
+
+  .icons-container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hex_container {
+    top: 200px;
+  }
+
+  .colorRGB {
+    top: 90px;
   }
 
   button {
-    background: none;
-    border: 2px solid;
-    font: inherit;
-    line-height: 1;
-    margin: 0.5em;
-    padding: 1em 2em;
-    background-color: beige;
-    border-radius: 15px;
-    border-width: 0.3rem;
+    padding: 0.8em 1.5em;
   }
 
   .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: "Madimi One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 25px;
-    font-weight: 300;
-  }
-
-
-@media screen and (max-width: 768px) {
-  button {
-      padding: 0.8em 1.5em; 
+    padding: 1rem;
+    font-size: 20px;
   }
 }
 
 @media screen and (max-width: 480px) {
+  .squares-container {
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .square {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+  }
+
+  .icon {
+    padding: 0.8rem;
+    font-size: 16px;
+  }
+
+  .hex_container {
+    top: 150px;
+    font-size: 18px;
+  }
+
+  .colorRGB {
+    top: 70px;
+    font-size: 18px;
+  }
+
   button {
-      padding: 0.6em 1.2em; 
+    padding: 0.6em 1.2em;
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 1rem;
+    font-size: 16px;
   }
 }

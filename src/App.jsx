@@ -90,12 +90,14 @@ function App() {
         currentColor={backgroundColor}
         onColorChange={handlebackGroundColorChange}
       />
+      <div className="icons-container">
       <Icons
         backgroundColor={backgroundColor}
         onUndo={handleUndo}
         onLike={handleLike}
         ref={animationRef}
       />
+      </div>
       <ColorPalette
         colors={[...addedColors]}
         onColorClick={handleColorClick}
