@@ -1,7 +1,8 @@
 import React from 'react';
+import './colorPalette.css'
 import { MdClose } from 'react-icons/md';
 
-const ColorPalette = ({ colors, onColorClick, onRemoveColor }) => {
+const ColorPalette = ({ colors, onColorClick, onRemoveColor , onClearPalette}) => {
   const handleColorClick = (color) => {
     console.log('Color clicked:', color); 
     onColorClick(color);
@@ -10,6 +11,8 @@ const ColorPalette = ({ colors, onColorClick, onRemoveColor }) => {
   const handleRemoveColorClick = (color) => {
     onRemoveColor(color);
   };
+
+
 
   return (
     <div className="color-palette">
@@ -21,6 +24,9 @@ const ColorPalette = ({ colors, onColorClick, onRemoveColor }) => {
           </div>
         </div>
       ))}
+      <button className="clear-palette-btn" onClick={onClearPalette}>
+        Clear the palette
+      </button>
     </div>
   );
 };

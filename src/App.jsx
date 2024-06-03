@@ -83,6 +83,10 @@ function App() {
     setAddedColors(new Set([...updatedColors.map(square => square.backgroundColor)]));
   };
 
+  const clearPalette = () => {
+    setSquares([]); 
+  };
+
   return (
     <div>
       <ColorText backgroundColor={backgroundColor} />
@@ -102,6 +106,7 @@ function App() {
         colors={[...addedColors]}
         onColorClick={handleColorClick}
         onRemoveColor={handleRemoveColor}
+        onClearPalette={clearPalette}
       />
       <div className={`squares-container ${showContainer ? 'show' : 'hide'}`}>
         {squares.map((square) => (
