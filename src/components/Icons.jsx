@@ -28,14 +28,14 @@ const Icons = ({ onCopy, onUndo, onLike, backgroundColor }) => {
   };
 
   return (
-    <div className="icons-container">
+    <section className="icons-container">
       <FaCopy
         onClick={handleCopy}
         className={`icon icon-copy ${copyClicked ? 'clicked' : ''}`}
       />
       <FaUndo onClick={handleUndo} className="icon" />
       <FaHeart onClick={handleLike} className="icon" />
-    </div>
+    </section>
   );
 };
 

@@ -8,8 +8,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1.5rem; /* Add some margin to separate from the button */
-    width: 100%; /* Ensure it takes full width for centering */
+    margin-top: 1.5rem; 
+    width: 100%;
     flex-wrap: wrap;
   }
   

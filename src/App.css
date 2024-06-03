@@ -73,12 +73,12 @@
   cursor: pointer;
 }
 
-.icons-container {
+/* .icons-container {
   position: absolute;
   top: 55%;
-  left: 45%;
+  left: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
 @keyframes copyAnimation {
   0% {
