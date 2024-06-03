@@ -13,7 +13,7 @@ function App() {
   const [isAnimationInProgress, setIsAnimationInProgress] = useState(false);
   const [squares, setSquares] = useState([]);
   const [addedColors, setAddedColors] = useState(new Set());
-  const [liked, setLiked] = useState(false);
+  const [likedColor, setLikedColor] = useState(null);
   const [showContainer, setShowContainer] = useState(false);
 
   const animationRef = useRef(null);
@@ -50,25 +50,26 @@ function App() {
   };
 
   const handleLike = () => {
-    const lastAddedColor = colorHistory[colorHistory.length - 1];
-    if (!showContainer) {
-      setShowContainer(true);
-    }
+    if (!addedColors.has(backgroundColor)) {
+      if (!showContainer) {
+        setShowContainer(true);
+      }
 
-    if (addedColors.size >= 30) {
-      alert("You have reached the maximum limit of favorited colors (30).");
-    } else if (addedColors.has(lastAddedColor)) { 
-      setLiked(true);
-      setTimeout(() => {
-        setLiked(false);
-      }, 1000);
+      if (addedColors.size >= 30) {
+        alert("You have reached the maximum limit of favorited colors (30).");
+      } else {
+        const newSquare = {
+          id: squares.length + 1,
+          backgroundColor: backgroundColor
+        };
+        setSquares([...squares, newSquare]);
+        setAddedColors(new Set(addedColors).add(backgroundColor));
+      }
     } else {
-      const newSquare = {
-        id: squares.length + 1,
-        backgroundColor: backgroundColor
-      };
-      setSquares([...squares, newSquare]);
-      setAddedColors(new Set(addedColors).add(lastAddedColor));
+      setLikedColor(backgroundColor);
+      setTimeout(() => {
+        setLikedColor(null);
+      }, 1000);
     }
   };
 
@@ -101,13 +102,13 @@ function App() {
         onRemoveColor={handleRemoveColor}
       />
       <div className={`squares-container ${showContainer ? 'show' : 'hide'}`}>
-        {squares.map((square, index) => (
+        {squares.map((square) => (
           <div
             key={square.id}
-            className={`square ${index === squares.length - 1 && liked ? 'liked transform' : ''}`}
+            className={`square ${square.backgroundColor === likedColor ? 'liked transform' : ''}`}
             style={{ backgroundColor: square.backgroundColor }}
           >
-            <MdClose></MdClose>
+            <MdClose onClick={() => handleRemoveColor(square.backgroundColor)} />
           </div>
         ))}
       </div>

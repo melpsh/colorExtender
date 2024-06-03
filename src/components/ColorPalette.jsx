@@ -15,9 +15,7 @@ const ColorPalette = ({ colors, onColorClick, onRemoveColor }) => {
     <div className="color-palette">
       {colors.map((color, index) => (
         <div key={index} className="color-square" style={{ backgroundColor: color }}>
-          {/* Set background color on click */}
           <div className="color-overlay" onClick={() => handleColorClick(color)}></div>
-          {/* Show remove icon only on hover */}
           <div className="remove-icon" onClick={() => handleRemoveColorClick(color)}>
             <MdClose />
           </div>
