@@ -15,7 +15,7 @@ function App() {
   const [addedColors, setAddedColors] = useState(() => new Set());
   const [likedColor, setLikedColor] = useState(null);
   const [showContainer, setShowContainer] = useState(false);
-  const [counter, setCounter] =useState(1);
+  const [counter, setCounter] = useState(1);
 
   const animationRef = useRef(null);
 
@@ -23,7 +23,7 @@ function App() {
     setColorHistory(prev => [...prev, backgroundColor]);
     setBackgroundColor(color);
   };
-   
+
   const handleUndo = () => {
     setIsAnimationReversed(true);
     if (colorHistory.length > 0) {
@@ -63,8 +63,9 @@ function App() {
           id: counter,
           backgroundColor: backgroundColor
         };
-        setSquares([...squares, newSquare]);
-        setAddedColors(addedColors.add(backgroundColor));
+        setSquares(prevSquares => [...prevSquares, newSquare]);
+        setAddedColors(prevColors => new Set(prevColors).add(backgroundColor));
+        setCounter(prevCounter => prevCounter + 1);
       }
     } else {
       setLikedColor(backgroundColor);
@@ -79,13 +80,17 @@ function App() {
   };
 
   const handleRemoveColor = (color) => {
-    const updatedColors = squares.filter(square => square.backgroundColor !== color);
-    setSquares(updatedColors);
-    setAddedColors(new Set([...updatedColors.map(square => square.backgroundColor)]));
+    setSquares(prevSquares => prevSquares.filter(square => square.backgroundColor !== color));
+    setAddedColors(prevColors => {
+      const newColors = new Set(prevColors);
+      newColors.delete(color);
+      return newColors;
+    });
   };
 
   const clearPalette = () => {
-    setSquares([]); 
+    setSquares([]);
+    setAddedColors(new Set());
   };
 
   return (
@@ -93,17 +98,17 @@ function App() {
       <ColorText backgroundColor={backgroundColor} />
       <Button
         currentColor={backgroundColor}
-        onColorChange={handlebackGroundColorChange}    
+        onColorChange={handlebackGroundColorChange}
         counter={counter}
-        setCounter={setCounter}    
+        setCounter={setCounter}
       />
       <span className="icons-container">
-      <Icons
-        backgroundColor={backgroundColor}
-        onUndo={handleUndo}
-        onLike={handleLike}
-        ref={animationRef}
-      />
+        <Icons
+          backgroundColor={backgroundColor}
+          onUndo={handleUndo}
+          onLike={handleLike}
+          ref={animationRef}
+        />
       </span>
       <ColorPalette
         colors={[...addedColors]}
