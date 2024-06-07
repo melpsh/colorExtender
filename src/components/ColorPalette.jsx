@@ -2,7 +2,7 @@ import React from 'react';
 import './colorPalette.css'
 import { MdClose } from 'react-icons/md';
 
-const ColorPalette = ({ colors, onColorClick, onRemoveColor , onClearPalette}) => {
+const ColorPalette = ({ colors, onColorClick, onRemoveColor , onClearPalette, counter}) => {
   const handleColorClick = (color) => {
     console.log('Color clicked:', color); 
     onColorClick(color);
@@ -12,12 +12,10 @@ const ColorPalette = ({ colors, onColorClick, onRemoveColor , onClearPalette}) =
     onRemoveColor(color);
   };
 
-
-
   return (
     <div className="color-palette">
-      {colors.map((color, index) => (
-        <div key={index} className="color-square" style={{ backgroundColor: color }}>
+      {colors.map((color) => (
+        <div key={counter} className="color-square" style={{ backgroundColor: color }}>
           <div className="color-overlay" onClick={() => handleColorClick(color)}></div>
           <div className="remove-icon" onClick={() => handleRemoveColorClick(color)}>
             <MdClose />

@@ -12,9 +12,10 @@ function App() {
   const [isAnimationReversed, setIsAnimationReversed] = useState(false);
   const [isAnimationInProgress, setIsAnimationInProgress] = useState(false);
   const [squares, setSquares] = useState([]);
-  const [addedColors, setAddedColors] = useState(new Set());
+  const [addedColors, setAddedColors] = useState(() => new Set());
   const [likedColor, setLikedColor] = useState(null);
   const [showContainer, setShowContainer] = useState(false);
+  const [counter, setCounter] =useState(1);
 
   const animationRef = useRef(null);
 
@@ -22,7 +23,7 @@ function App() {
     setColorHistory(prev => [...prev, backgroundColor]);
     setBackgroundColor(color);
   };
-  
+   
   const handleUndo = () => {
     setIsAnimationReversed(true);
     if (colorHistory.length > 0) {
@@ -59,11 +60,11 @@ function App() {
         alert("You have reached the maximum limit of favorited colors (30).");
       } else {
         const newSquare = {
-          id: squares.length + 1,
+          id: counter,
           backgroundColor: backgroundColor
         };
         setSquares([...squares, newSquare]);
-        setAddedColors(new Set(addedColors).add(backgroundColor));
+        setAddedColors(addedColors.add(backgroundColor));
       }
     } else {
       setLikedColor(backgroundColor);
@@ -92,7 +93,9 @@ function App() {
       <ColorText backgroundColor={backgroundColor} />
       <Button
         currentColor={backgroundColor}
-        onColorChange={handlebackGroundColorChange}
+        onColorChange={handlebackGroundColorChange}    
+        counter={counter}
+        setCounter={setCounter}    
       />
       <span className="icons-container">
       <Icons
@@ -107,6 +110,7 @@ function App() {
         onColorClick={handleColorClick}
         onRemoveColor={handleRemoveColor}
         onClearPalette={clearPalette}
+        counter={counter}
       />
       <div className={`squares-container ${showContainer ? 'show' : 'hide'}`}>
         {squares.map((square) => (

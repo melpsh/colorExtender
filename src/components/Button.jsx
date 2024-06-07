@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './Button.css';
 
-const Button = ({ currentColor, onColorChange }) => {
+const Button = ({ currentColor, onColorChange, counter, setCounter }) => {
     
     const [isAnimationInProgress, setIsAnimationInProgress] = useState(false);
     const animationRef = useRef(null);
@@ -13,7 +13,9 @@ const Button = ({ currentColor, onColorChange }) => {
     const hexColor = generateHexColor();
 
     onColorChange(hexColor);
-
+    setCounter(counter+1);
+    console.log("counterrrr: ",counter);
+    
     
     console.log('asgharrrrrrr',animationRef)
     if (animationRef.current) {
