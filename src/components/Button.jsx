@@ -14,10 +14,10 @@ const Button = ({ currentColor, onColorChange, counter, setCounter }) => {
 
     onColorChange(hexColor);
     setCounter(counter+1);
-    console.log("counterrrr: ",counter);
+    // console.log("counterrrr: ",counter);
     
     
-    console.log('asgharrrrrrr',animationRef)
+    // console.log('asgharrrrrrr',animationRef)
     if (animationRef.current) {
         animationRef.current.style.animation = 'none';
         void animationRef.current.offsetWidth; 
