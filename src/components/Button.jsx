@@ -2,37 +2,14 @@ import React, { useState, useRef } from 'react';
 import './Button.css';
 
 const Button = ({ currentColor, onColorChange, counter, setCounter }) => {
-    
-    const [isAnimationInProgress, setIsAnimationInProgress] = useState(false);
-    const animationRef = useRef(null);
 
   const handleClick = () => {
-    if (!isAnimationInProgress) {
-    setIsAnimationInProgress(true);
 
     const hexColor = generateHexColor();
 
     onColorChange(hexColor);
     setCounter(counter+1);
-    // console.log("counterrrr: ",counter);
-    
-    
-    // console.log('asgharrrrrrr',animationRef)
-    if (animationRef.current) {
-        animationRef.current.style.animation = 'none';
-        void animationRef.current.offsetWidth; 
-    }
 
-    
-    if (animationRef.current) {
-        animationRef.current.style.animation = 'pulse_btn 1s ease-in-out';  
-    }
-
-    setTimeout(() => {
-        setIsAnimationInProgress(false);
-    }); 
-
-   }
   };
 
   const generateHexColor = () => {
@@ -49,7 +26,6 @@ const Button = ({ currentColor, onColorChange, counter, setCounter }) => {
       <button
         className="pulse_btn"
         onClick={handleClick}
-        ref={animationRef}
         style={{
           boxShadow: `0 0 0 100vw ${currentColor}`
         }}
