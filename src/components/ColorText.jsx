@@ -15,7 +15,7 @@ const ColorText = ({ backgroundColor }) => {
   const textColor = (hexColor) => {
     const rgb = hexToRgb(hexColor);
     const luminance = (0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b) / 255;
-    return luminance > 0.5 ? '#000000' : '#beige';
+    return luminance > 0.5 ? 'black' : 'white';
   };
 
   const textStyle = {

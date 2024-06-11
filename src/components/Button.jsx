@@ -29,7 +29,6 @@ const Button = ({ currentColor, onColorChange, counter, setCounter }) => {
         style={{
           boxShadow: `0 0 0 100vw ${currentColor}`
         }}
-        
       >
         Change Color
       </button>

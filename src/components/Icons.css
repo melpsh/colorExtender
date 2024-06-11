@@ -2,6 +2,7 @@
     padding: 1.5rem;
     font-size: 20px;
     cursor: pointer;
+    /* border: 1px solid white; */
   }
   
   .icons-container {
@@ -36,7 +37,7 @@
     }
   
     .icons-container {
-      margin-top: 0.8rem; /* Adjust margin for smaller screens */
+      margin-top: 0.8rem;
     }
   }
   
@@ -47,7 +48,7 @@
     }
   
     .icons-container {
-      margin-top: 0.5rem; /* Adjust margin for smaller screens */
+      margin-top: 0.5rem; 
     }
   }
   
@@ -69,7 +70,7 @@
   
   .container {
     display: flex;
-    flex-direction: column; /* Ensure vertical alignment */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     height: 100vh;
