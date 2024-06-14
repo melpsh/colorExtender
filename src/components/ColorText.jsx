@@ -28,7 +28,7 @@ const ColorText = ({ backgroundColor }) => {
         BackgroundColor: {backgroundColor}
       </h1>
       <h1 className='colorRGB text-with-border' style={textStyle}>
-        RGB: {rgbColor}
+        RGB : {rgbColor}
       </h1>
     </div>
   );

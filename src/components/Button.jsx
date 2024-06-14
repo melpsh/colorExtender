@@ -4,7 +4,6 @@ import './Button.css';
 const Button = ({ currentColor, onColorChange, counter, setCounter }) => {
 
   const handleClick = () => {
-
     const hexColor = generateHexColor();
 
     onColorChange(hexColor);

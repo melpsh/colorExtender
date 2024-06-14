@@ -9,8 +9,6 @@ import { MdClose } from 'react-icons/md';
 function App() {
   const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
   const [colorHistory, setColorHistory] = useState([]);
-  const [isAnimationReversed, setIsAnimationReversed] = useState(false);
-  const [isAnimationInProgress, setIsAnimationInProgress] = useState(false);
   const [squares, setSquares] = useState([]);
   const [addedColors, setAddedColors] = useState(() => new Set());
   const [likedColor, setLikedColor] = useState(null);
@@ -25,28 +23,10 @@ function App() {
   };
 
   const handleUndo = () => {
-    setIsAnimationReversed(true);
     if (colorHistory.length > 0) {
       const previousColor = colorHistory.pop();
       setBackgroundColor(previousColor);
       setColorHistory([...colorHistory]);
-    }
-
-    if (!isAnimationInProgress) {
-      setIsAnimationInProgress(true);
-
-      if (animationRef.current) {
-        animationRef.current.style.animation = 'none';
-        void animationRef.current.offsetWidth;
-      }
-
-      if (animationRef.current) {
-        animationRef.current.style.animation = ' 1s ease-in-out';
-      }
-
-      setTimeout(() => {
-        setIsAnimationInProgress(false);
-      }, 1000);
     }
   };
 
