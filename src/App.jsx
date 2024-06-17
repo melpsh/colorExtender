@@ -14,6 +14,7 @@ function App() {
   const [likedColor, setLikedColor] = useState(null);
   const [showContainer, setShowContainer] = useState(false);
   const [counter, setCounter] = useState(1);
+  const [colorInfo, setColorInfo] = useState("");
 
   const animationRef = useRef(null);
 
@@ -55,10 +56,6 @@ function App() {
     }
   };
 
-  const handleColorClick = (color) => {
-    setBackgroundColor(color);
-  };
-
   const handleRemoveColor = (color) => {
     setSquares(prevSquares => prevSquares.filter(square => square.backgroundColor !== color));
     setAddedColors(prevColors => {
@@ -72,6 +69,14 @@ function App() {
     setSquares([]);
     setAddedColors(new Set());
   };
+
+  const squareDetailsDisplay = (squareColorInfo) => {
+    setColorInfo(squareColorInfo);
+  }
+  
+  const squareDetailsHide = () => { 
+    setColorInfo(null);
+   }
 
   return (
     <div>
@@ -92,7 +97,6 @@ function App() {
       </span>
       <ColorPalette
         colors={[...addedColors]}
-        onColorClick={handleColorClick}
         onRemoveColor={handleRemoveColor}
         onClearPalette={clearPalette}
         counter={counter}
@@ -103,8 +107,14 @@ function App() {
             key={square.id}
             className={`square ${square.backgroundColor === likedColor ? 'liked transform' : ''}`}
             style={{ backgroundColor: square.backgroundColor }}
+            onMouseEnter={()=> {squareDetailsDisplay(square.backgroundColor)}}
+            onMouseLeave={()=> {squareDetailsHide()}}
+            onClick={()=> {handlebackGroundColorChange(square.backgroundColor)}}
           >
-            <MdClose onClick={() => handleRemoveColor(square.backgroundColor)} />
+            <MdClose className='square-delete' onClick={() => handleRemoveColor(square.backgroundColor)} />
+            {colorInfo? 
+            <div className='squarColorInfo'> {colorInfo} </div>
+            : ""}
           </div>
         ))}
       </div>

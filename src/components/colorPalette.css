@@ -1,8 +1,8 @@
 .clear-palette-btn {
     position: absolute;
-    top: 1rem; /* Adjust to position the button from the top */
-    right: 1rem; /* Adjust to position the button from the right */
-    background-color: beige; /* Button background color */
+    top: 1rem; 
+    right: 1rem; 
+    background-color: beige;
     border: 2px solid;
     padding: 0.5rem 1rem;
     border-radius: 15px;

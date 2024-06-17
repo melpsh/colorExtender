@@ -1,43 +1,27 @@
 import React, { useState } from 'react';
-import './colorPalette.css'
+import './colorPalette.css';
 import { MdClose } from 'react-icons/md';
 
-const ColorPalette = ({ colors, onColorClick, onRemoveColor , onClearPalette, counter}) => {
+const ColorPalette = ({ colors, onRemoveColor, onClearPalette }) => {
   const [hoveredColor, setHoveredColor] = useState(null);
 
-  const handleColorClick = (color) => {
-    console.log('Color clicked:', color); 
-    onColorClick(color);
-  };
-
   const handleRemoveColorClick = (color) => {
+    console.log('Remove color clicked:', color);
     onRemoveColor(color);
-  };
-
-  const handleMouseEnter = (color) => {
-    // setHoveredColor(color);
-    console.log("mouse enter is working");
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredColor(null);
   };
 
   return (
     <div className="color-palette">
-      {colors.map((color) => (
+      {colors.map((color, index) => (
         <div 
-        key={counter} 
-        className="color-square" 
-        style={{ backgroundColor: color }}
-        onMouseEnter={()=> handleMouseEnter(color)}
-        onMouseLeave={handleMouseLeave}
+          key={index} 
+          className="color-square" 
+          style={{ backgroundColor: color }}
         >
-          <div className="color-overlay" onClick={() => handleColorClick(color)}></div>
           <div className="remove-icon" onClick={() => handleRemoveColorClick(color)}>
             <MdClose />
           </div>
-          {hoveredColor === color && alert('hovereddddddd')};
+          {hoveredColor === color && <div className="hover-alert">Hovered</div>}
         </div>
       ))}
       <button className="clear-palette-btn" onClick={onClearPalette}>
