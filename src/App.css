@@ -166,9 +166,7 @@ button {
   left: 4px;
   margin: 1px;
 }
-
-.squarColorInfo{
-  position: relative;
+.square-delete:hover{
   justify-items: center;
   justify-content: center;
   justify-self: center;
@@ -176,6 +174,10 @@ button {
   align-items: center;
   align-self: center;
   align-content: center;
+}
+
+.squarColorInfo{
+
 }
 
 @media screen and (max-width: 768px) {

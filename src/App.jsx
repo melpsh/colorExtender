@@ -15,6 +15,7 @@ function App() {
   const [showContainer, setShowContainer] = useState(false);
   const [counter, setCounter] = useState(1);
   const [colorInfo, setColorInfo] = useState("");
+  const [hoveredSquareId, setHoveredSquareId] = useState(null);
 
   const animationRef = useRef(null);
 
@@ -107,14 +108,26 @@ function App() {
             key={square.id}
             className={`square ${square.backgroundColor === likedColor ? 'liked transform' : ''}`}
             style={{ backgroundColor: square.backgroundColor }}
-            onMouseEnter={()=> {squareDetailsDisplay(square.backgroundColor)}}
-            onMouseLeave={()=> {squareDetailsHide()}}
+            onMouseEnter={()=> setHoveredSquareId(square.id)}
+            onMouseLeave={()=> setHoveredSquareId(null)}
             onClick={()=> {handlebackGroundColorChange(square.backgroundColor)}}
           >
-            <MdClose className='square-delete' onClick={() => handleRemoveColor(square.backgroundColor)} />
-            {colorInfo? 
-            <div className='squarColorInfo'> {colorInfo} </div>
-            : ""}
+            {hoveredSquareId === square.id  && (
+              <>
+<div className=''>
+              <MdClose className='square-delete' onClick={(e) => {
+                  e.stopPropagation();
+                  handleRemoveColor(square.backgroundColor);
+              }} />
+            </div>
+
+                      <div className='squarColorInfo'>
+          {square.backgroundColor}
+        </div>
+                    
+              </>
+
+      )}
           </div>
         ))}
       </div>
