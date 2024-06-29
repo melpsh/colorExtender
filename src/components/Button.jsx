@@ -1,18 +1,16 @@
-import React, { useState, useRef } from 'react';
-import './Button.css';
+import React, { useState, useRef } from "react";
+import "./Button.css";
 
 const Button = ({ currentColor, onColorChange, counter, setCounter }) => {
-
   const handleClick = () => {
     const hexColor = generateHexColor();
 
     onColorChange(hexColor);
-    setCounter(counter+1);
-
+    setCounter(counter + 1);
   };
 
   const generateHexColor = () => {
-    let hexColor = '#';
+    let hexColor = "#";
     const colors = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
     for (let i = 0; i < 6; i++) {
       hexColor += colors[Math.floor(Math.random() * colors.length)];
@@ -26,7 +24,7 @@ const Button = ({ currentColor, onColorChange, counter, setCounter }) => {
         className="pulse_btn"
         onClick={handleClick}
         style={{
-          boxShadow: `0 0 0 100vw ${currentColor}`
+          boxShadow: `0 0 0 100vw ${currentColor}`,
         }}
       >
         Change Color

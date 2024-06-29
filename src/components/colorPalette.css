@@ -1,12 +1,12 @@
 .clear-palette-btn {
-    position: absolute;
-    top: 1rem; 
-    right: 1rem; 
-    background-color: beige;
-    border: 2px solid;
-    padding: 0.5rem 1rem;
-    border-radius: 15px;
-    font-size: 16px;
-    cursor: pointer;
-    font-family: "DM Sans", sans-serif;
-  }
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: beige;
+  border: 2px solid;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+}

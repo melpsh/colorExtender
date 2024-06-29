@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
-import { MdClose } from 'react-icons/md';
+import React, { useState } from "react";
+import { MdClose } from "react-icons/md";
 
-const SquareComponent = ({ square, likedColor, handlebackGroundColorChange, handleRemoveColor }) => {
+const SquareComponent = ({
+  square,
+  likedColor,
+  handlebackGroundColorChange,
+  handleRemoveColor,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
       key={square.id}
-      className={`square ${square.backgroundColor === likedColor ? 'liked transform' : ''}`}
+      className={`square ${square.backgroundColor === likedColor ? "liked transform" : ""}`}
       style={{ backgroundColor: square.backgroundColor }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -15,7 +20,7 @@ const SquareComponent = ({ square, likedColor, handlebackGroundColorChange, hand
     >
       <div>
         <MdClose
-          className='square-delete'
+          className="square-delete"
           onClick={(e) => {
             e.stopPropagation();
             handleRemoveColor(square.backgroundColor);
@@ -23,17 +28,21 @@ const SquareComponent = ({ square, likedColor, handlebackGroundColorChange, hand
         />
       </div>
       {isHovered && (
-        <div className='squarColorInfo'>
-          {square.backgroundColor}
-        </div>
+        <div className="squarColorInfo">{square.backgroundColor}</div>
       )}
     </div>
   );
 };
 
-const SquaresContainer = ({ squares, showContainer, likedColor, handlebackGroundColorChange, handleRemoveColor }) => {
+const SquaresContainer = ({
+  squares,
+  showContainer,
+  likedColor,
+  handlebackGroundColorChange,
+  handleRemoveColor,
+}) => {
   return (
-    <div className={`squares-container ${showContainer ? 'show' : 'hide'}`}>
+    <div className={`squares-container ${showContainer ? "show" : "hide"}`}>
       {squares.map((square) => (
         <SquareComponent
           key={square.id}

@@ -39,7 +39,10 @@
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
-  transition: box-shadow 0.3s ease, transform 0.3s ease, border 0.5s ease;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    border 0.5s ease;
 }
 
 .liked {
@@ -160,13 +163,13 @@ button {
   padding: 1rem;
 }
 
-.square-delete{
+.square-delete {
   position: relative;
   top: 4px;
   left: 4px;
   margin: 1px;
 }
-.square-delete:hover{
+.square-delete:hover {
   justify-items: center;
   justify-content: center;
   justify-self: center;
@@ -176,8 +179,9 @@ button {
   align-content: center;
 }
 
-.squarColorInfo{
-
+.squarColorInfo {
+  opacity: 1;
+  transition: 0 2s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {

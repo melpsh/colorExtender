@@ -1,5 +1,5 @@
-import React from 'react';
-import './ColorText.css';
+import React from "react";
+import "./ColorText.css";
 
 const ColorText = ({ backgroundColor }) => {
   const hexToRgb = (hex) => {
@@ -9,25 +9,24 @@ const ColorText = ({ backgroundColor }) => {
     return `(${r}, ${g}, ${b})`;
   };
 
-
   const rgbColor = hexToRgb(backgroundColor);
 
   const textColor = (hexColor) => {
     const rgb = hexToRgb(hexColor);
     const luminance = (0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b) / 255;
-    return luminance > 0.5 ? 'black' : 'white';
+    return luminance > 0.5 ? "black" : "white";
   };
 
   const textStyle = {
-    color: textColor(backgroundColor)
+    color: textColor(backgroundColor),
   };
 
   return (
-    <div className='hex_container'>
-      <h1 className='colorHex text-with-border' style={textStyle} >
+    <div className="hex_container">
+      <h1 className="colorHex text-with-border" style={textStyle}>
         BackgroundColor: {backgroundColor}
       </h1>
-      <h1 className='colorRGB text-with-border' style={textStyle}>
+      <h1 className="colorRGB text-with-border" style={textStyle}>
         RGB : {rgbColor}
       </h1>
     </div>

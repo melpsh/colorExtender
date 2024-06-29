@@ -1,105 +1,104 @@
 .icon {
-    padding: 1.5rem;
-    font-size: 20px;
-    cursor: pointer;
-    /* border: 1px solid white; */
+  padding: 1.5rem;
+  font-size: 20px;
+  cursor: pointer;
+  /* border: 1px solid white; */
+}
+
+.icons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+@keyframes copyAnimation {
+  0% {
+    transform: scale(1);
   }
-  
-  .icons-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.5rem; 
-    width: 100%;
-    flex-wrap: wrap;
+  50% {
+    transform: scale(1.1);
   }
-  
-  @keyframes copyAnimation {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
+  100% {
+    transform: scale(1);
   }
-  
-  .icon-copy.clicked {
-    animation: copyAnimation 0.5s ease-in-out;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .icon {
-      padding: 1rem;
-      font-size: 18px;
-    }
-  
-    .icons-container {
-      margin-top: 0.8rem;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .icon {
-      padding: 0.8rem;
-      font-size: 16px;
-    }
-  
-    .icons-container {
-      margin-top: 0.5rem; 
-    }
-  }
-  
-  button.pulse_btn.active {
-    animation: pulse_btn 1s;
-  }
-  
-  button {
-    background: none;
-    border: 2px solid;
-    font: inherit;
-    line-height: 1;
-    margin: 0.5em;
-    padding: 1em 2em;
-    background-color: beige;
-    border-radius: 15px;
-    border-width: 0.3rem;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: "Madimi One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 25px;
-    font-weight: 300;
+}
+
+.icon-copy.clicked {
+  animation: copyAnimation 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .icon {
     padding: 1rem;
+    font-size: 18px;
   }
-  
-  @media screen and (max-width: 768px) {
-    button {
-      padding: 0.8em 1.5em;
-    }
-  
-    .container {
-      font-size: 20px;
-    }
+
+  .icons-container {
+    margin-top: 0.8rem;
   }
-  
-  @media screen and (max-width: 480px) {
-    button {
-      padding: 0.6em 1.2em;
-      font-size: 16px;
-    }
-  
-    .container {
-      font-size: 16px;
-    }
+}
+
+@media screen and (max-width: 480px) {
+  .icon {
+    padding: 0.8rem;
+    font-size: 16px;
   }
-  
+
+  .icons-container {
+    margin-top: 0.5rem;
+  }
+}
+
+button.pulse_btn.active {
+  animation: pulse_btn 1s;
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  background-color: beige;
+  border-radius: 15px;
+  border-width: 0.3rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  font-weight: 300;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  button {
+    padding: 0.8em 1.5em;
+  }
+
+  .container {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  button {
+    padding: 0.6em 1.2em;
+    font-size: 16px;
+  }
+
+  .container {
+    font-size: 16px;
+  }
+}

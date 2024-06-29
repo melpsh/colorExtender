@@ -1,13 +1,13 @@
-import React, { useState, useRef } from 'react';
-import './App.css';
-import ColorPalette from './components/ColorPalette';
-import Button from './components/Button';
-import ColorText from './components/ColorText';
-import Icons from './components/Icons';
-import { MdClose } from 'react-icons/md';
+import React, { useState, useRef } from "react";
+import "./App.css";
+import ColorPalette from "./components/ColorPalette";
+import Button from "./components/Button";
+import ColorText from "./components/ColorText";
+import Icons from "./components/Icons";
+import { MdClose } from "react-icons/md";
 
 function App() {
-  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF');
+  const [backgroundColor, setBackgroundColor] = useState("#FFFFFF");
   const [colorHistory, setColorHistory] = useState([]);
   const [squares, setSquares] = useState([]);
   const [addedColors, setAddedColors] = useState(() => new Set());
@@ -20,7 +20,7 @@ function App() {
   const animationRef = useRef(null);
 
   const handlebackGroundColorChange = (color) => {
-    setColorHistory(prev => [...prev, backgroundColor]);
+    setColorHistory((prev) => [...prev, backgroundColor]);
     setBackgroundColor(color);
   };
 
@@ -43,11 +43,13 @@ function App() {
       } else {
         const newSquare = {
           id: counter,
-          backgroundColor: backgroundColor
+          backgroundColor: backgroundColor,
         };
-        setSquares(prevSquares => [...prevSquares, newSquare]);
-        setAddedColors(prevColors => new Set(prevColors).add(backgroundColor));
-        setCounter(prevCounter => prevCounter + 1);
+        setSquares((prevSquares) => [...prevSquares, newSquare]);
+        setAddedColors((prevColors) =>
+          new Set(prevColors).add(backgroundColor),
+        );
+        setCounter((prevCounter) => prevCounter + 1);
       }
     } else {
       setLikedColor(backgroundColor);
@@ -58,8 +60,10 @@ function App() {
   };
 
   const handleRemoveColor = (color) => {
-    setSquares(prevSquares => prevSquares.filter(square => square.backgroundColor !== color));
-    setAddedColors(prevColors => {
+    setSquares((prevSquares) =>
+      prevSquares.filter((square) => square.backgroundColor !== color),
+    );
+    setAddedColors((prevColors) => {
       const newColors = new Set(prevColors);
       newColors.delete(color);
       return newColors;
@@ -73,11 +77,11 @@ function App() {
 
   const squareDetailsDisplay = (squareColorInfo) => {
     setColorInfo(squareColorInfo);
-  }
-  
-  const squareDetailsHide = () => { 
+  };
+
+  const squareDetailsHide = () => {
     setColorInfo(null);
-   }
+  };
 
   return (
     <div>
@@ -102,32 +106,33 @@ function App() {
         onClearPalette={clearPalette}
         counter={counter}
       />
-      <div className={`squares-container ${showContainer ? 'show' : 'hide'}`}>
+      <div className={`squares-container ${showContainer ? "show" : "hide"}`}>
         {squares.map((square) => (
           <div
             key={square.id}
-            className={`square ${square.backgroundColor === likedColor ? 'liked transform' : ''}`}
+            className={`square ${square.backgroundColor === likedColor ? "liked transform" : ""}`}
             style={{ backgroundColor: square.backgroundColor }}
-            onMouseEnter={()=> setHoveredSquareId(square.id)}
-            onMouseLeave={()=> setHoveredSquareId(null)}
-            onClick={()=> {handlebackGroundColorChange(square.backgroundColor)}}
+            onMouseEnter={() => setHoveredSquareId(square.id)}
+            onMouseLeave={() => setHoveredSquareId(null)}
+            onClick={() => {
+              handlebackGroundColorChange(square.backgroundColor);
+            }}
           >
-            {hoveredSquareId === square.id  && (
+            {hoveredSquareId === square.id && (
               <>
-<div className=''>
-              <MdClose className='square-delete' onClick={(e) => {
-                  e.stopPropagation();
-                  handleRemoveColor(square.backgroundColor);
-              }} />
-            </div>
+                <div className="">
+                  <MdClose
+                    className="square-delete"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleRemoveColor(square.backgroundColor);
+                    }}
+                  />
+                </div>
 
-                      <div className='squarColorInfo'>
-          {square.backgroundColor}
-        </div>
-                    
+                <div className="squarColorInfo">{square.backgroundColor}</div>
               </>
-
-      )}
+            )}
           </div>
         ))}
       </div>
