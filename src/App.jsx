@@ -14,7 +14,6 @@ function App() {
   const [likedColor, setLikedColor] = useState(null);
   const [showContainer, setShowContainer] = useState(false);
   const [counter, setCounter] = useState(1);
-  const [colorInfo, setColorInfo] = useState("");
   const [hoveredSquareId, setHoveredSquareId] = useState(null);
 
   const animationRef = useRef(null);
@@ -73,14 +72,6 @@ function App() {
   const clearPalette = () => {
     setSquares([]);
     setAddedColors(new Set());
-  };
-
-  const squareDetailsDisplay = (squareColorInfo) => {
-    setColorInfo(squareColorInfo);
-  };
-
-  const squareDetailsHide = () => {
-    setColorInfo(null);
   };
 
   return (

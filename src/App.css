@@ -15,17 +15,18 @@
 }
 
 .squares-container {
-  display: none;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  /* position: absolute;
   bottom: 5rem;
   left: 3rem;
-  right: 3rem;
+  right: 3rem; */
   border-radius: 8px;
   background-color: rgba(171, 165, 165, 0.4);
+  width: fit-content;
 }
 
 .show {
@@ -75,13 +76,6 @@
   font-size: 20px;
   cursor: pointer;
 }
-
-/* .icons-container {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
 
 @keyframes copyAnimation {
   0% {
@@ -168,20 +162,21 @@ button {
   top: 4px;
   left: 4px;
   margin: 1px;
-}
-.square-delete:hover {
-  justify-items: center;
-  justify-content: center;
-  justify-self: center;
-  text-justify: center;
-  align-items: center;
-  align-self: center;
-  align-content: center;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .squarColorInfo {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  height: 77px;
+  justify-content: center;
+  align-items: center;
+}
+
+.squarColorInfo:hover {
   opacity: 1;
-  transition: 0 2s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {

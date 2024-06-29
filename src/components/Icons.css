@@ -27,7 +27,16 @@
 }
 
 .icon-copy.clicked {
-  animation: copyAnimation 0.5s ease-in-out;
+  animation: copyAnimation 0.7s ease-in-out;
+  color: gold;
+}
+
+.undoIcon.clicked {
+  color: gold;
+}
+
+.likeIcon.clicked {
+  color: gold;
 }
 
 @media screen and (max-width: 768px) {

@@ -4,6 +4,8 @@ import "./Icons.css";
 
 const Icons = ({ onCopy, onUndo, onLike, backgroundColor }) => {
   const [copyClicked, setCopyClicked] = useState(false);
+  const [undoClicked, setUndoClicked] = useState(false);
+  const [likeClicked, setLikeClicked] = useState(false);
 
   const handleCopy = () => {
     if (backgroundColor) {
@@ -12,7 +14,7 @@ const Icons = ({ onCopy, onUndo, onLike, backgroundColor }) => {
         .then(() => {
           console.log("Color code copied to clipboard: " + backgroundColor);
           setCopyClicked(true);
-          setTimeout(() => setCopyClicked(false), 500);
+          setTimeout(() => setCopyClicked(false), 400);
         })
         .catch((err) => console.error("Unable to copy color code: ", err));
     } else {
@@ -22,10 +24,14 @@ const Icons = ({ onCopy, onUndo, onLike, backgroundColor }) => {
 
   const handleUndo = () => {
     onUndo();
+    setUndoClicked(true);
+    setTimeout(() => setUndoClicked(false), 400);
   };
 
   const handleLike = () => {
     onLike();
+    setLikeClicked(true);
+    setTimeout(() => setLikeClicked(false), 400);
   };
 
   return (
@@ -34,8 +40,12 @@ const Icons = ({ onCopy, onUndo, onLike, backgroundColor }) => {
         onClick={handleCopy}
         className={`icon icon-copy ${copyClicked ? "clicked" : ""}`}
       />
-      <FaUndo onClick={handleUndo} className="icon" />
-      <FaHeart onClick={handleLike} className="icon" />
+      <FaUndo onClick={handleUndo} 
+      className={`icon undoIcon ${undoClicked ? "clicked": ""}`} 
+      />
+      <FaHeart onClick={handleLike} 
+      className={`icon likeIcon ${likeClicked ? "clicked": ""}`} 
+      />
     </section>
   );
 };
