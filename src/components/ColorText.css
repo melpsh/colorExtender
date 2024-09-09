@@ -2,56 +2,42 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 250px;
+  top: 200px;
   left: 50%;
-  color: beige;
   transform: translateX(-50%);
   justify-content: center;
   align-items: center;
   font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
   font-size: 25px;
   font-weight: 600;
-  font-style: normal;
+  color: beige;
+  text-align: center; /* Ensure text is centered */
 }
 
 .colorRGB {
-  color: beige;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  justify-content: center;
-  align-items: center;
-  font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
+  margin-top: 10px; /* Add space between the two lines */
   font-size: 25px;
   font-weight: 600;
-  font-style: normal;
 }
 
 @media screen and (max-width: 768px) {
   .hex_container {
-    top: 200px;
-    font-size: 22px; /* Adjust font size for medium screens */
+    top: 150px;
+    font-size: 20px;
   }
 
   .colorRGB {
-    top: 90px;
-    font-size: 22px; /* Adjust font size for medium screens */
+    font-size: 20px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .hex_container {
-    top: 150px;
-    font-size: 20px; /* Adjust font size for small screens */
+    top: 120px;
+    font-size: 18px;
   }
 
   .colorRGB {
-    top: 70px;
-    font-size: 20px; /* Adjust font size for small screens */
+    font-size: 18px;
   }
 }
