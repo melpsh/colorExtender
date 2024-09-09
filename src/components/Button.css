@@ -3,10 +3,10 @@
     box-shadow: 0 0 0 0;
   }
   50% {
-    box-shadow: 0 0 0 50vw;
+    box-shadow: 0 0 0 20vw; /* Reduce the box-shadow for smaller screens */
   }
   0% {
-    box-shadow: 0 0 0 100vw;
+    box-shadow: 0 0 0 40vw; /* Adjust initial size */
   }
 }
 
@@ -66,10 +66,6 @@
     1px 1px 0 black;
 }
 
-.MdClose {
-  border: #ffffff;
-}
-
 .icon {
   padding: 1.5rem;
   font-size: 20px;
@@ -113,7 +109,6 @@
   font-optical-sizing: auto;
   font-size: 25px;
   font-weight: 600;
-  font-style: normal;
 }
 
 .colorRGB {
@@ -127,10 +122,8 @@
   justify-content: center;
   align-items: center;
   font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
   font-size: 25px;
   font-weight: 600;
-  font-style: normal;
 }
 
 button.pulse_btn.active {
@@ -153,13 +146,11 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; /* Ensure vertical alignment */
+  flex-direction: column;
   height: 100vh;
   font-family: "Madimi One", sans-serif;
   font-weight: 400;
-  font-style: normal;
   font-size: 25px;
-  font-weight: 300;
   padding: 1rem;
 }
 
